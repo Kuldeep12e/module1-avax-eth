@@ -1,0 +1,31 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract ErrorHandlingContract {
+    uint256 public value;
+
+    function testrequire(uint256 _input) public {
+        
+        require(_input > 0, "Input must be greater than zero");
+        value = _input;
+    }
+
+    function testassert() public {
+        uint256 a = 40;
+        uint256 b = 20;
+
+        
+        assert(a < b);
+        
+        
+        value = 42;
+    }
+
+    function testrevert(uint256 _input) public {
+        if (_input == 0) {
+           
+            revert("Input cannot be zero");
+        }
+        value = _input;
+    }
+}
